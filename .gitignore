@@ -1,0 +1,17 @@
+# Dataset — stays on laptop only, never push to GitHub
+Customer-Churn.csv
+*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.env
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
