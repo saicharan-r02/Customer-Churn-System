@@ -268,16 +268,22 @@ Streamlit
 Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/customer-churn-prediction.git
+git clone https://github.com/saicharan-r02/Customer-Churn-Prediction-Retention-Intelligence-System.git
 ```
 
-Install Requirements
+### Navigate to the Project Directory
+
+```bash
+cd Customer-Churn-Prediction-Retention-Intelligence-System
+```
+
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run Streamlit
+### Run the Streamlit Application
 
 ```bash
 streamlit run app.py
