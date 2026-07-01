@@ -99,8 +99,8 @@ Customer-Churn-Prediction-Reten.../
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/customer-churn-predictor.git
-cd customer-churn-predictor
+git clone https://github.com/saicharan-r02/Customer-Churn-Prediction-Retention-Intelligence-System.git
+cd Customer-Churn-Prediction-Retention-Intelligence-System
 
 # 2. Install dependencies
 pip install -r requirements.txt
