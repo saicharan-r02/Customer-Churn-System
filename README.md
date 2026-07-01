@@ -1,327 +1,152 @@
 # 📊 Customer Churn Prediction & Retention Intelligence System
 
-An end-to-end Machine Learning application that predicts customer churn and generates personalized retention strategies based on customer behavior.
+> Predict which telecom customers are at risk of leaving — and get a personalised, data-driven plan to retain them.
 
-The project combines data preprocessing, exploratory data analysis, machine learning, and an interactive Streamlit dashboard to help businesses identify customers who are likely to leave and recommend actions to improve retention.
-
----
-
-## Project Overview
-
-Customer churn is one of the biggest challenges for subscription-based businesses.
-
-This project predicts whether a customer is likely to churn using historical customer data and provides business-oriented retention recommendations instead of only displaying prediction results.
-
-The project includes:
-
-- Complete data preprocessing
-- Exploratory Data Analysis (EDA)
-- Feature Engineering
-- Model Training
-- Model Evaluation
-- Streamlit Web Application
-- Customer Risk Analysis
-- Personalized Retention Intelligence
+🔴 **Live Demo**: [Click here to try the app](https://customer-churn-prediction-retention-intelligence-system-npqtfh.streamlit.app)
 
 ---
 
-## Features
+## 🎯 Problem Statement
 
-### Machine Learning
+Customer churn is one of the most costly problems in the telecom industry. Acquiring a new customer costs **5–7× more** than retaining an existing one. Yet most companies only act after a customer has already left.
 
-- Data Cleaning
-- Missing Value Handling
-- Feature Engineering
-- Feature Encoding
-- Feature Scaling
-- Multiple Machine Learning Models
-- Model Comparison
-- Probability Prediction
-
-Models Used
-
-- Logistic Regression
-- Random Forest
-- Gradient Boosting
-
-Best Performing Model
-
-- Random Forest Classifier
+This project solves two problems in one system:
+1. **Predict** — which customers are at risk of churning (and by how much)
+2. **Retain** — give a personalised, specific action plan for each at-risk customer *before* they leave
 
 ---
 
-### Data Analysis
+## 💡 Solution
 
-Exploratory Data Analysis includes
-
-- Customer distribution
-- Gender analysis
-- Senior citizen analysis
-- Partner analysis
-- Dependents analysis
-- Internet service analysis
-- Payment method analysis
-- Contract analysis
-- Monthly charges
-- Total charges
-- Customer tenure
-- Correlation Heatmap
-- Feature Importance
-- ROC Curve Comparison
-- Confusion Matrix
+A machine learning system trained on **7,032 real Telco customer records** that:
+- Classifies each customer into Low / Medium / High churn risk
+- Explains *why* that specific customer is at risk
+- Recommends personalised retention actions (contract offers, discounts, bundles, loyalty programmes)
+- Deployed as a live interactive web application
 
 ---
 
-### Streamlit Dashboard
+## 🏆 Model Results
 
-Interactive dashboard includes
+| Model | Accuracy | ROC-AUC |
+|---|---|---|
+| Logistic Regression | 79.3% | 0.830 |
+| **Random Forest** ✅ | **80.4%** | **0.850** |
+| Gradient Boosting | 80.1% | 0.845 |
 
-- Customer profile input
-- Churn probability prediction
-- Risk level classification
-- Progress indicator
-- Business explanation of churn
-- Personalized retention strategies
-
----
-
-### Business Intelligence
-
-Instead of simply predicting churn, the application explains
-
-- Why the customer is at risk
-- Risk factors
-- Customer behavior
-- Suggested retention plans
-- Discount recommendations
-- Upselling opportunities
-- Loyalty programs
+**Winner: Random Forest** — best accuracy and AUC, selected for deployment.
 
 ---
 
-## Dataset
+## 📊 Key EDA Insights (from 7,032 customer records)
 
-Dataset used
-
-Telco Customer Churn Dataset
-
-Features include
-
-- Demographics
-- Account Information
-- Internet Services
-- Billing Information
-- Contract Type
-- Payment Method
-- Customer Charges
-- Customer Tenure
-
-Target Variable
-
-- Churn
+| Finding | Data |
+|---|---|
+| Month-to-month contract churn rate | **43%** vs 3% for 2-year contracts |
+| Customers who churn in first 12 months | **68%** — critical early retention window |
+| Fiber optic vs DSL churn rate | Fiber churns **2× more** than DSL |
+| Highest-risk payment method | **Electronic check** — highest churn of all methods |
 
 ---
 
-## Project Structure
+## 🧠 Retention Intelligence Logic
+
+The system goes beyond a simple probability score. For each customer it analyses:
+
+- **Contract type** → offers specific upgrade discount (15% for 1-yr, 25% for 2-yr)
+- **Internet service** → recommends free security/tech bundle for fiber optic users
+- **Payment method** → suggests auto-pay switch with 5% monthly discount
+- **Tenure** → triggers early loyalty programme for customers under 12 months
+- **Monthly charges** → calculates exact saving and proposes price reduction
+- **Senior citizens** → recommends dedicated support plan
+- **Missing services** → offers targeted streaming/security trial bundles
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Tools |
+|---|---|
+| Language | Python 3 |
+| Data Processing | Pandas, NumPy |
+| Machine Learning | Scikit-learn (Random Forest, Logistic Regression, Gradient Boosting) |
+| Visualisation | Matplotlib, Seaborn |
+| Web App | Streamlit |
+| Model Persistence | Joblib |
+| Deployment | Streamlit Cloud |
+
+---
+
+## 📁 Project Structure
 
 ```
-Customer-Churn-Prediction/
-
-│
+Customer-Churn-Prediction-Reten.../
+├── .gitignore
 ├── app.py
-├── Customer_Churn_Project.ipynb
-├── Customer-Churn.csv
-├── rf_model.pkl
-├── lr_model.pkl
-├── scaler.pkl
 ├── columns.json
+├── Customer_Churn_Project.ipynb
+├── Customer-Churn.csv        ← stays local (gitignored)
+├── lr_model.pkl
+├── README.md                  
 ├── requirements.txt
-├── README.md
-└── .gitignore
+├── rf_model.pkl
+└── scaler.pkl
 ```
 
 ---
 
-## Machine Learning Workflow
-
-1. Load Dataset
-
-2. Data Cleaning
-
-- Handle missing values
-- Convert TotalCharges to numeric
-- Remove unnecessary columns
-
-3. Exploratory Data Analysis
-
-- Distribution plots
-- Count plots
-- Histograms
-- Box plots
-- Heatmap
-- Scatter plots
-
-4. Feature Engineering
-
-- Label Encoding
-- One-Hot Encoding
-- Feature Scaling
-
-5. Train-Test Split
-
-80% Training
-
-20% Testing
-
-6. Model Training
-
-- Logistic Regression
-- Random Forest
-- Gradient Boosting
-
-7. Model Evaluation
-
-- Accuracy
-- ROC-AUC Score
-- Confusion Matrix
-- ROC Curve
-- Feature Importance
-
-8. Save Model
-
-- scaler.pkl
-- rf_model.pkl
-- columns.json
-
-9. Deploy using Streamlit
-
----
-
-## Application Workflow
-
-User Inputs Customer Details
-
-↓
-
-Data Preprocessing
-
-↓
-
-Feature Scaling
-
-↓
-
-Random Forest Prediction
-
-↓
-
-Churn Probability
-
-↓
-
-Risk Classification
-
-↓
-
-Business Explanation
-
-↓
-
-Personalized Retention Strategy
-
----
-
-## Risk Categories
-
-| Risk Level | Probability |
-|------------|-------------|
-| Low Risk | 0–30% |
-| Medium Risk | 30–60% |
-| High Risk | 60–100% |
-
----
-
-## Technologies Used
-
-Python
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Seaborn
-
-Scikit-learn
-
-Joblib
-
-JSON
-
-Streamlit
-
----
-
-## Installation
-
-Clone Repository
+## 🚀 How to Run Locally
 
 ```bash
-git clone https://github.com/saicharan-r02/Customer-Churn-Prediction-Retention-Intelligence-System.git
-```
+# 1. Clone the repository
+git clone https://github.com/your-username/customer-churn-predictor.git
+cd customer-churn-predictor
 
-### Navigate to the Project Directory
-
-```bash
-cd Customer-Churn-Prediction-Retention-Intelligence-System
-```
-
-### Install Dependencies
-
-```bash
+# 2. Install dependencies
 pip install -r requirements.txt
-```
 
-### Run the Streamlit Application
-
-```bash
+# 3. Run the app
 streamlit run app.py
 ```
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
-Add screenshots here after deployment.
+### Home — Input Form
+*(Add screenshot here after deployment)*
 
-Example
+### Prediction — High Risk Customer
+*(Add screenshot here after deployment)*
 
-- Dashboard
-- Prediction Result
-- Retention Recommendation
-- Feature Importance
-
----
-
-## Future Improvements
-
-- SHAP Explainable AI
-- XGBoost / LightGBM
-- Hyperparameter Tuning
-- Docker Support
-- CI/CD Pipeline
-- Cloud Deployment
-- Customer Segmentation
-- Real-time API
-- Authentication
-- Database Integration
-- LLM-powered Recommendation Engine
+### Prediction — Retention Actions
+*(Add screenshot here after deployment)*
 
 ---
 
-## Author
+## 📈 Dataset
 
-Sai Charan
+- **Source**: IBM Telco Customer Churn Dataset (available on Kaggle)
+- **Records**: 7,043 customers → 7,032 after cleaning (11 rows with null TotalCharges dropped)
+- **Features**: 20 columns including demographics, services, contract, and charges
+- **Target**: Churn (Yes/No) → encoded as 1/0
 
-Machine Learning | Data Science | AI
+---
+
+## 🔍 Notebook Sections
+
+The training notebook (`Customer_Churn_Project.ipynb`) covers:
+
+1. Data loading & initial exploration
+2. Data cleaning (TotalCharges fix, null handling, encoding)
+3. Exploratory Data Analysis — 12 plots across demographics and services
+4. Feature preprocessing (LabelEncoder + get_dummies + StandardScaler)
+5. Model building & comparison (LR vs RF vs GB)
+6. ROC curve comparison + feature importance plot
+7. Final results — confusion matrix + classification report
+
+---
+
+## 👨‍💻 Author
+
+Built as an end-to-end machine learning project demonstrating data cleaning, EDA, model selection, and production deployment with a business-focused retention intelligence layer.
